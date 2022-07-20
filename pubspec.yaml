@@ -9,20 +9,20 @@ environment:
     sdk: '>=2.17.6 <3.0.0'
 
 dependencies:
-    flutter:
-        sdk: flutter
+    bloc: ^8.0.3
     cupertino_icons: ^1.0.2
-
     equatable: ^2.0.3
     firebase_auth: ^3.4.2
     firebase_core: ^1.19.2
     flow_builder: ^0.0.9
+    flutter:
+        sdk: flutter
     flutter_bloc: ^8.0.1
     flutterfire_ui: ^0.4.2+3
     font_awesome_flutter: ^10.1.0
+    very_good_analysis: ^3.0.1
 
 dev_dependencies:
-    flutter_lints: ^2.0.0
     flutter_test:
         sdk: flutter
 
