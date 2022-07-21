@@ -15,7 +15,7 @@ class SignupScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Signup')),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20),
         child: BlocProvider<SignupCubit>(
           create: (_) => SignupCubit(context.read<AuthRepository>()),
           child: const SignupForm(),

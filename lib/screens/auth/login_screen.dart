@@ -34,7 +34,7 @@ class LoginForm extends StatelessWidget {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state.status == LoginStatus.error) {
-          // Error
+          const Center(child: Text('Error'));
         }
       },
       child: Column(
@@ -121,7 +121,7 @@ class _SignupButton extends StatelessWidget {
         fixedSize: const Size(200, 40),
       ),
       child: const Text(
-        'Signup',
+        'Create Account',
         style: TextStyle(
           color: Colors.blue,
         ),
