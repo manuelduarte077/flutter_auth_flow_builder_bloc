@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "295348428652",
+    "project_id": "authflowbuilderbloc",
+    "storage_bucket": "authflowbuilderbloc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295348428652:android:a21a48dc750aaf5b6ddd49",
+        "android_client_info": {
+          "package_name": "com.getnerdify.flutter_auth_flow_builder_bloc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295348428652-a3a54kmfcf7vtnhrvkkna2lkbn1lvfpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX5rvhBl-XMDxTELQOUp_69TwZ3gVOkns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295348428652-a3a54kmfcf7vtnhrvkkna2lkbn1lvfpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
