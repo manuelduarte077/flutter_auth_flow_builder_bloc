@@ -28,9 +28,24 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = ColorScheme.fromSeed(seedColor: Colors.indigoAccent);
     return MaterialApp(
       theme: ThemeData(
+        colorScheme: colorScheme,
         useMaterial3: true,
+        primaryColor: colorScheme.primary,
+        textTheme: const TextTheme(
+          headlineLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        buttonTheme: const ButtonThemeData(
+          shape: StadiumBorder(),
+          textTheme: ButtonTextTheme.primary,
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(),
+        ),
       ),
       home: FlowBuilder(
         state: context.select((AppBloc bloc) => bloc.state.status),

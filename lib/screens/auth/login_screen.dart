@@ -12,7 +12,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: BlocProvider(
@@ -31,23 +30,46 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final sheme = theme.colorScheme;
+    final styles = theme.textTheme;
+
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state.status == LoginStatus.error) {
           const Center(child: Text('Error'));
         }
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _EmailInput(),
-          const SizedBox(height: 8),
-          _PasswordInput(),
-          const SizedBox(height: 8),
-          _LoginButton(),
-          const SizedBox(height: 8),
-          _SignupButton(),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Spacer(),
+            Icon(
+              Icons.face,
+              size: 80,
+              color: sheme.tertiary,
+            ),
+            const Spacer(),
+            Text(
+              'Login',
+              style: styles.headlineLarge,
+            ),
+            const SizedBox(height: 24),
+            _EmailInput(),
+            const SizedBox(height: 24),
+            _PasswordInput(),
+            const SizedBox(height: 16),
+            _LoginButton(),
+            const SizedBox(height: 24),
+            _SignupButton(),
+            const Spacer(
+              flex: 2,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -63,7 +85,10 @@ class _EmailInput extends StatelessWidget {
           onChanged: (email) {
             context.read<LoginCubit>().emailChanged(email);
           },
-          decoration: const InputDecoration(labelText: 'Email'),
+          decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.email_outlined),
+            labelText: 'Email',
+          ),
         );
       },
     );
@@ -80,7 +105,14 @@ class _PasswordInput extends StatelessWidget {
           onChanged: (password) {
             context.read<LoginCubit>().passwordChanged(password);
           },
-          decoration: const InputDecoration(labelText: 'Password'),
+          decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.lock_outline_rounded),
+            labelText: 'Password',
+            suffixIcon: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.visibility_off_outlined),
+            ),
+          ),
         );
       },
     );
@@ -99,9 +131,6 @@ class _LoginButton extends StatelessWidget {
                 onPressed: () {
                   context.read<LoginCubit>().logInWithCredentials();
                 },
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(200, 40),
-                ),
                 child: const Text('Login'),
               );
       },
@@ -112,19 +141,10 @@ class _LoginButton extends StatelessWidget {
 class _SignupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () => Navigator.of(context).push<void>(
-        SignupScreen.route(),
-      ),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.white,
-        fixedSize: const Size(200, 40),
-      ),
-      child: const Text(
-        'Create Account',
-        style: TextStyle(
-          color: Colors.blue,
-        ),
+    return Center(
+      child: InkWell(
+        onTap: () => Navigator.of(context).push(SignupScreen.route()),
+        child: const Text('Create Account'),
       ),
     );
   }
