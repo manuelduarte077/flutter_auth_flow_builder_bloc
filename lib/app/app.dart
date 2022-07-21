@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth_flow_builder_bloc/blocs/app/app_bloc.dart';
 import 'package:flutter_auth_flow_builder_bloc/config/routes.dart';
 import 'package:flutter_auth_flow_builder_bloc/repositories/auth_repository.dart';
-import 'package:flutter_auth_flow_builder_bloc/screens/home/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyApp extends StatelessWidget {
